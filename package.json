@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "python3 -m http.server 5173 --directory dist",
+    "dev": "python3 -m http.server 5173",
+    "build": "node scripts/build-site.js",
+    "check": "node scripts/validate-site.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

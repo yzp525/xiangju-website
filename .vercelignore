@@ -1,0 +1,6 @@
+tmp/
+dist/
+.git/
+.pnpm-store/
+node_modules/
+*.log
