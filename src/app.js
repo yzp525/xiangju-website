@@ -1,7 +1,7 @@
 const copy = {
   zh: {
     siteTitle: '乡聚公社', brand: '乡聚公社', nav: ['首页', '活动与项目', '展览', '关于我们'], languageLabel: '切换语言', light: '浅色', dark: '深色',
-    tag: '设计激活乡村 · 崇明乡聚田园', title: '他们用三个月，让收获后的稻田成为人人都能相聚、玩耍、共同成长的地方。',
+    tag: '设计激活乡村 · 崇明乡聚田园', title: '历经十年，崇乡美聚以时间为传媒，以稻田为实践场域，与城乡社区共同成为乡村发展的创作者。',
     intro: '乡聚公社于2016年由陈远、俞昌斌在上海崇明建设村创立，是一个致力于乡村振兴的公益性机构。我们的理念是：“有审美的乡村，有温度的欢聚”。',
     eventsAction: '探索活动 ›', exhibitionAction: '参观展览', previousProject: '上一年', nextProject: '下一年', heroProjects: [['2016','田园迷宫','乡聚田园'],['2017','田园剧场','乡聚田园'],['2018','稻垛集市','乡聚田园丰收节'],['2019','稻田摇滚','乡聚田园'],['2020','稻田笑脸','乡聚田园'],['2021','稻田宇宙','乡聚田园'],['2022','稻田戏剧','乡聚田园'],['2023','稻田和平','乡聚田园'],['2024','稻田曲弈','乡聚田园'],['2025','稻田和集','乡聚田园']],
     stats: [],
@@ -22,7 +22,7 @@ const copy = {
   },
   en: {
     siteTitle: 'Rural Commune', brand: 'Rural Commune', nav: ['Home', 'Events & Projects', 'Exhibition', 'About Us'], languageLabel: 'Switch language', light: 'Light', dark: 'Dark',
-    tag: 'Design in service of rural life · Chongming', title: 'In three months, a harvested rice field became a place where people could gather, play, and grow together.',
+    tag: 'Design in service of rural life · Chongming', title: 'Time is the medium, the rice field is the screen, and the community is the co-author.',
     intro: 'Founded by Chen Yuan and Yu Changbin in Jianshe Village, Chongming, in 2016, Rural Commune is a nonprofit dedicated to rural revitalization. We believe in beautiful rural places and gatherings filled with warmth.',
     eventsAction: 'Explore events ›', exhibitionAction: 'Visit exhibition', previousProject: 'Previous year', nextProject: 'Next year', heroProjects: [['2016','Field Maze','Rural Gathering'],['2017','Field Banquet','Rural Gathering'],['2018','Field Pyramid','Rural Harvest Festival'],['2019',"Field Rock N’ Roll",'Rural Gathering'],['2020','Field Emoji','Rural Gathering'],['2021','Field Metaverse','Rural Gathering'],['2022','Field Drama','Rural Gathering'],['2023','Field Peace','Rural Gathering'],['2024','Field Heritage','Rural Gathering'],['2025','Field Calligraphy','Rural Gathering']],
     stats: [],
