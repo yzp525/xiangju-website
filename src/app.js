@@ -313,8 +313,8 @@ function renderExhibition(e, includeBehindScenes = true, includeOpeningFilm = fa
   const exhibition2GallerySection = includeOpeningFilm ? `
     <section class="section exhibition2-gallery-section"><div class="exhibition2-gallery-heading"><p class="eyebrow">${e.exhibitionName}</p><h2>${lang === 'zh' ? '展场记录' : 'A Record of the Installation'}</h2><p>${lang === 'zh' ? '四幅现场影像记录了展览从布置、观看到交流的片段：技术、艺术与人的相遇，在威尼斯水巷边留下具体而温暖的痕迹。' : 'These four views trace the exhibition as it was built, encountered, and shared: technology, art, and people meeting beside a Venetian canal.'}</p></div><div class="exhibition2-gallery-grid">${exhibitionBehindImages.map((src, index) => `<figure><img src="${src}" alt="${e.behindCaptions[index]}" loading="lazy"></figure>`).join('')}</div></section>` : '';
   $('exhibitionStory').innerHTML = `
-    ${openingFilmSection}
     ${exhibition2GallerySection}
+    ${openingFilmSection}
     ${behindScenesSection}
     <section class="section exhibition-intro ${includeOpeningFilm ? 'exhibition2-intro-section' : ''}"><div><p class="eyebrow">${e.exhibitionName}</p><h2>${e.exhibitionSub}</h2><p class="exhibition-opening">${e.opening}</p><p class="exhibition-author">${e.author}</p></div><figure class="exhibition-hero-photo"><img src="src/media/exhibition/exhibition-hero.jpg" alt="${e.exhibitionName}" loading="eager"><figcaption>${e.exhibitionName}</figcaption></figure></section>
     <section class="section curatorial-section"><div class="curatorial-heading"><p class="eyebrow">${e.prefaceTitle}</p><h2>${e.whyTitle}</h2><span>${e.prefaceMeta}</span></div><div class="editorial-copy">${e.why.map(p => `<p>${p}</p>`).join('')}</div></section>
