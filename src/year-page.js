@@ -15,7 +15,8 @@ const yearMedia = {
   '2024': { zhFile: '2024-rice-field-chess-zh.mp4', enFile: '2024-rice-field-chess-en.mp4', posterSrc: '../src/media/year-stories/2024-1.jpg', zh: '2024 稻田曲弈', en: '2024 Field Heritage' },
   '2025': { zhFile: '2025-rice-field-gathering-zh.mp4', enFile: '2025-rice-field-gathering-en.mp4', posterSrc: '../src/media/year-stories/2025-1.jpg', zh: '2025 稻田和集', en: '2025 Field Calligraphy' }
 };
-const yearMediaFolder = Number(year) <= 2021 ? 'years (1)' : 'years (2)';
+const yearMediaFolder = Number(year) <= 2021 ? 'years%20%281%29' : 'years%20%282%29';
+const yearMediaBase = 'https://xiangju-2026.oss-cn-shanghai.aliyuncs.com';
 const yearStoryImages = {
   '2023': ['2023-archive-1.jpg', '2023-archive-2.jpg', '2023-archive-3.jpg'],
   '2024': ['2024-archive-1.jpg', '2024-archive-2.jpg', '2024-archive-3.jpg'],
@@ -123,7 +124,7 @@ function renderYear() {
     }
     const title = lang === 'zh' ? media.zh : media.en;
     const mediaFile = media[`${lang}File`] || media.file;
-    const source = media[`${lang}Src`] || `../src/media/${yearMediaFolder}/${mediaFile}`;
+    const source = media[`${lang}Src`] || `${yearMediaBase}/${yearMediaFolder}/${mediaFile}`;
     const posterFile = media[`${lang}Poster`] || media.poster || `${year}.jpg`;
     const posterSource = media.posterSrc || `../src/media/year-covers/${posterFile}`;
     mediaSection.innerHTML = `<div class="year-video-frame"><video src="${source}" poster="${posterSource}" controls preload="metadata" playsinline aria-label="${title}"></video></div><div class="year-video-copy"><p class="eyebrow">${year}</p><h2>${title}</h2><p>${lang === 'zh' ? '观看本年度乡聚活动与项目影像。' : 'Watch the film from this year’s Rural Commune events and projects.'}</p></div>`;
