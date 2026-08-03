@@ -100,7 +100,7 @@ function renderYear() {
   document.getElementById('yearTitle').textContent = t.title;
   document.getElementById('yearEmpty').textContent = t.empty;
   document.getElementById('backLink').textContent = t.back;
-  const routes = ['../index.html', 'index.html', '../exhibition-2.html', '../about.html'];
+  const routes = ['../index.html', 'index.html', '../exhibition.html', '../about.html'];
   const years = Array.from({ length: 10 }, (_, index) => 2025 - index);
   document.getElementById('yearNav').innerHTML = routes.map((route, index) => {
     if (index === 1) return `<div class="nav-dropdown"><a class="active" href="${route}">${t.nav[index]} <span class="nav-chevron" aria-hidden="true">⌄</span></a><div class="nav-year-menu" aria-label="${lang === 'zh' ? '选择年份' : 'Select a year'}">${years.map(item => `<a class="year-menu-link" href="${item}.html"><span class="numeric">${item}</span><span>${yearNames[lang][item]}</span></a>`).join('')}</div></div>`;

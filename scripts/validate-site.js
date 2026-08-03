@@ -1,6 +1,6 @@
 const fs = require('fs');
 const required = [
-  'index.html', 'events/index.html', 'exhibition-2.html', 'about.html',
+  'index.html', 'events/index.html', 'exhibition.html', 'about.html',
   'src/styles.css', 'src/app.js', 'src/year-page.js',
   'src/media/xiangju-logo.png',
   'src/media/years (1)/2016-rural-field-experiment.mp4',
@@ -36,7 +36,7 @@ for (const file of required) {
 }
 const html = fs.readFileSync('index.html', 'utf8');
 if (!html.includes('id="home"')) throw new Error('Missing home page content');
-for (const page of ['events/index.html', 'exhibition-2.html', 'about.html']) {
+for (const page of ['events/index.html', 'exhibition.html', 'about.html']) {
   if (!fs.readFileSync(page, 'utf8').includes('id="nav"')) throw new Error(`Missing navigation in ${page}`);
 }
 console.log('Static site validation passed.');

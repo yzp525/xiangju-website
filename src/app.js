@@ -208,17 +208,17 @@ function render() {
   const t = copy[lang];
   const page = document.body.dataset.section || document.body.dataset.page || 'home';
   const root = document.body.dataset.root || '';
-  const routes = ['index.html', 'events/index.html', 'exhibition-2.html', 'about.html'];
+  const routes = ['index.html', 'events/index.html', 'exhibition.html', 'about.html'];
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-  document.title = page === 'home' ? t.siteTitle : ({ events: t.eventsTitle, exhibition2: `${t.nav[2]} · ${exhibitionContent[lang].title}`, about: t.about })[page];
+  document.title = page === 'home' ? t.siteTitle : ({ events: t.eventsTitle, exhibition: `${t.nav[2]} · ${exhibitionContent[lang].title}`, about: t.about })[page];
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = page === 'home' ? t.intro : ({ events: t.eventsLead, exhibition2: exhibitionContent[lang].thesis, about: t.aboutText })[page];
+  if (description) description.content = page === 'home' ? t.intro : ({ events: t.eventsLead, exhibition: exhibitionContent[lang].thesis, about: t.aboutText })[page];
   setText('brandText', t.brand);
   document.querySelector('.brand')?.setAttribute('aria-label', t.brand);
   const years = Array.from({ length: 10 }, (_, index) => 2025 - index);
   const projectNames = Object.fromEntries(t.heroProjects.map(([year, title]) => [year, title]));
   $('nav').innerHTML = routes.map((route, i) => {
-    const pageName = ['home', 'events', 'exhibition2', 'about'][i];
+    const pageName = ['home', 'events', 'exhibition', 'about'][i];
     const active = pageName === page ? 'active' : '';
     if (pageName === 'events') return `<div class="nav-dropdown"><a class="${active}" href="${root}${route}">${t.nav[i]} <span class="nav-chevron" aria-hidden="true">⌄</span></a><div class="nav-year-menu" aria-label="${t.selectYear}"><a class="year-menu-overview" href="${root}${route}">${t.eventsTitle}</a>${years.map(year => `<a class="year-menu-link" href="${root}events/${year}.html"><span class="numeric">${year}</span><span>${projectNames[year]}</span></a>`).join('')}</div></div>`;
     return `<a class="${active}" href="${root}${route}">${t.nav[i]}</a>`;
@@ -247,7 +247,7 @@ function render() {
     return `<a class="events-year-card" href="${year}.html" aria-label="${year} · ${projectNames[year]}"><img src="${image}" alt="${projectNames[year]}" loading="lazy"><span class="events-year-overlay"><strong class="numeric">${year}</strong><span>${projectNames[year]}</span><em>${t.openYear} →</em></span></a>`;
   }).join('');
   setText('exhibitionEyebrow', t.exhibitionEyebrow); setText('exhibitionTitle', t.exhibition); setText('mediaLead', t.mediaLead); setText('mediaTitle', t.media); setText('mediaHint', t.hint);
-  if ($('exhibitionStory')) renderExhibition(exhibitionContent[lang], page !== 'exhibition2', page === 'exhibition2');
+  if ($('exhibitionStory')) renderExhibition(exhibitionContent[lang], page !== 'exhibition', page === 'exhibition');
   if ($('mediaGrid')) $('mediaGrid').innerHTML = media.map(([type, src, year], index) => `<figure>${type === 'video' ? `<video src="${src}" controls></video>` : `<img src="${src}" alt="${t.mediaCaptions[index]}">`}<figcaption>${year} · ${t.mediaCaptions[index]}</figcaption></figure>`).join('');
   setText('aboutEyebrow', t.aboutEyebrow); setText('aboutTitle', t.about); setText('aboutText', t.aboutText); setText('award', t.award); setText('footer', t.footer);
   if ($('aboutPrinciples')) $('aboutPrinciples').innerHTML = t.ideas.map(([title, body]) => `<article><h3>${title}</h3><p>${body}</p></article>`).join('');
@@ -309,14 +309,14 @@ function renderExhibition(e, includeBehindScenes = true, includeOpeningFilm = fa
   const behindScenesSection = includeBehindScenes ? `
     <section class="section behind-scenes exhibition-backstage exhibition-backstage-opening"><header class="backstage-heading"><p class="eyebrow">${e.exhibitionName}</p><h2>${e.behindTitle}</h2><p>${e.behindText}</p></header><div class="backstage-media"><div class="exhibition-video-frame"><video class="exhibition-video" src="src/media/tl_04.mp4" poster="src/media/exhibition/behind-2.jpg" controls preload="metadata" playsinline aria-label="${e.behindTitle}"></video></div><div class="behind-scenes-gallery">${exhibitionBehindImages.map((src, index) => `<figure><img src="${src}" alt="${e.behindCaptions[index]}" loading="lazy"><figcaption><span>${e.behindTitle} ${index + 1}</span><strong>${e.behindCaptions[index]}</strong></figcaption></figure>`).join('')}</div></div></section>` : '';
   const openingFilmSection = includeOpeningFilm ? `
-    <section class="section exhibition2-opening"><div class="exhibition2-opening-copy"><p class="eyebrow">${e.title}</p><h2>${e.behindTitle}</h2><p>${e.behindText}</p></div><div class="exhibition-video-frame"><video class="exhibition-video" src="src/media/tl_04.mp4" poster="src/media/exhibition/behind-2.jpg" controls preload="metadata" playsinline aria-label="${e.behindTitle}"></video></div></section>` : '';
-  const exhibition2GallerySection = includeOpeningFilm ? `
-    <section class="section exhibition2-gallery-section"><div class="exhibition2-gallery-heading"><p class="eyebrow">${e.exhibitionName}</p><h2>${lang === 'zh' ? '展场记录' : 'A Record of the Installation'}</h2><p>${lang === 'zh' ? '四幅现场影像记录了展览从布置、观看到交流的片段：技术、艺术与人的相遇，在威尼斯水巷边留下具体而温暖的痕迹。' : 'These four views trace the exhibition as it was built, encountered, and shared: technology, art, and people meeting beside a Venetian canal.'}</p></div><div class="exhibition2-gallery-grid">${exhibitionBehindImages.map((src, index) => `<figure><img src="${src}" alt="${e.behindCaptions[index]}" loading="lazy"></figure>`).join('')}</div></section>` : '';
+    <section class="section exhibition-page-opening"><div class="exhibition-page-opening-copy"><p class="eyebrow">${e.title}</p><h2>${e.behindTitle}</h2><p>${e.behindText}</p></div><div class="exhibition-video-frame"><video class="exhibition-video" src="src/media/tl_04.mp4" poster="src/media/exhibition/behind-2.jpg" controls preload="metadata" playsinline aria-label="${e.behindTitle}"></video></div></section>` : '';
+  const exhibitionGallerySection = includeOpeningFilm ? `
+    <section class="section exhibition-page-gallery-section"><div class="exhibition-page-gallery-heading"><p class="eyebrow">${e.exhibitionName}</p><h2>${lang === 'zh' ? '展场记录' : 'A Record of the Installation'}</h2><p>${lang === 'zh' ? '四幅现场影像记录了展览从布置、观看到交流的片段：技术、艺术与人的相遇，在威尼斯水巷边留下具体而温暖的痕迹。' : 'These four views trace the exhibition as it was built, encountered, and shared: technology, art, and people meeting beside a Venetian canal.'}</p></div><div class="exhibition-page-gallery-grid">${exhibitionBehindImages.map((src, index) => `<figure><img src="${src}" alt="${e.behindCaptions[index]}" loading="lazy"></figure>`).join('')}</div></section>` : '';
   $('exhibitionStory').innerHTML = `
-    ${exhibition2GallerySection}
+    ${exhibitionGallerySection}
     ${openingFilmSection}
     ${behindScenesSection}
-    <section class="section exhibition-intro ${includeOpeningFilm ? 'exhibition2-intro-section' : ''}"><div><p class="eyebrow">${e.exhibitionName}</p><h2>${e.exhibitionSub}</h2><p class="exhibition-opening">${e.opening}</p><p class="exhibition-author">${e.author}</p></div><figure class="exhibition-hero-photo"><img src="src/media/exhibition/exhibition-hero.jpg" alt="${e.exhibitionName}" loading="eager"><figcaption>${e.exhibitionName}</figcaption></figure></section>
+    <section class="section exhibition-intro ${includeOpeningFilm ? 'exhibition-page-intro-section' : ''}"><div><p class="eyebrow">${e.exhibitionName}</p><h2>${e.exhibitionSub}</h2><p class="exhibition-opening">${e.opening}</p><p class="exhibition-author">${e.author}</p></div><figure class="exhibition-hero-photo"><img src="src/media/exhibition/exhibition-hero.jpg" alt="${e.exhibitionName}" loading="eager"><figcaption>${e.exhibitionName}</figcaption></figure></section>
     <section class="section curatorial-section"><div class="curatorial-heading"><p class="eyebrow">${e.prefaceTitle}</p><h2>${e.whyTitle}</h2><span>${e.prefaceMeta}</span></div><div class="editorial-copy">${e.why.map(p => `<p>${p}</p>`).join('')}</div></section>
     <section class="section definition-section"><div class="definition-header"><span>${e.biennale}</span><h2>${e.whatTitle}</h2><p>${e.what}</p></div><div class="definition-body"><h3>${e.definitionTitle}</h3>${e.definition.map(p => `<p>${p}</p>`).join('')}</div><div class="exhibition-quotes">${e.quotes.map(q => `<blockquote>${q}</blockquote>`).join('')}</div></section>
     <section class="exhibition-chapters">${e.chapters.map((chapter, index) => `<article class="section exhibition-chapter"><figure class="chapter-photo"><img src="${exhibitionChapterImages[index]}" alt="${chapter.image}" loading="lazy"><figcaption>${chapter.image}</figcaption></figure><div class="chapter-copy"><p class="eyebrow">0${index + 1} · ${chapter.tag}</p><h2>${chapter.title}</h2>${chapter.paragraphs.map(p => `<p>${p}</p>`).join('')}</div></article>`).join('')}</section>`;
