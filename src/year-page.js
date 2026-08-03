@@ -125,8 +125,7 @@ function renderYear() {
     const title = lang === 'zh' ? media.zh : media.en;
     const mediaFile = media[`${lang}File`] || media.file;
     const source = media[`${lang}Src`] || `${yearMediaBase}/${yearMediaFolder}/${mediaFile}`;
-    const posterFile = media[`${lang}Poster`] || media.poster || `${year}.jpg`;
-    const posterSource = media.posterSrc || `../src/media/year-covers/${posterFile}`;
+    const posterSource = `../src/media/events-archive/${year}.jpg`;
     mediaSection.innerHTML = `<div class="year-video-frame"><video src="${source}" poster="${posterSource}" controls preload="metadata" playsinline aria-label="${title}"></video></div><div class="year-video-copy"><p class="eyebrow">${year}</p><h2>${title}</h2><p>${lang === 'zh' ? '观看本年度乡聚活动与项目影像。' : 'Watch the film from this year’s Rural Commune events and projects.'}</p></div>`;
     document.getElementById('yearEmpty').hidden = true;
     canvas.hidden = true;
