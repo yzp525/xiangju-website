@@ -64,8 +64,8 @@ const yearStories = {
   }
 };
 const content = {
-  zh: { title: `${year}年活动与项目`, empty: '内容待补充', back: '← 返回活动与项目', brand: '乡聚公社', nav: ['首页', '活动与项目', '展览 2', '关于我们'], switchLabel: '切换语言', light: '浅色', dark: '深色' },
-  en: { title: `${year} Events & Projects`, empty: 'Content coming soon', back: '← Back to Events & Projects', brand: 'Rural Commune', nav: ['Home', 'Events & Projects', 'Exhibition 2', 'About Us'], switchLabel: 'Switch language', light: 'Light', dark: 'Dark' }
+  zh: { title: `${year}年活动与项目`, empty: '内容待补充', back: '← 返回活动与项目', brand: '乡聚公社', nav: ['首页', '活动与项目', '展览', '关于我们'], switchLabel: '切换语言', light: '浅色', dark: '深色' },
+  en: { title: `${year} Events & Projects`, empty: 'Content coming soon', back: '← Back to Events & Projects', brand: 'Rural Commune', nav: ['Home', 'Events & Projects', 'Exhibition', 'About Us'], switchLabel: 'Switch language', light: 'Light', dark: 'Dark' }
 };
 let lang = localStorage.getItem('xiangju-language') || 'zh';
 function applySavedTheme() {
