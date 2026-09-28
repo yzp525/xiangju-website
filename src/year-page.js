@@ -15,7 +15,7 @@ const yearMedia = {
   '2024': { zhFile: '2024-rice-field-chess-zh.mp4', enFile: '2024-rice-field-chess-en.mp4', posterSrc: '../src/media/year-stories/2024-1.jpg', zh: '2024 稻田曲弈', en: '2024 Field Heritage' },
   '2025': { zhFile: '2025-rice-field-gathering-zh.mp4', enFile: '2025-rice-field-gathering-en.mp4', posterSrc: '../src/media/year-stories/2025-1.jpg', zh: '2025 稻田和集', en: '2025 Field Calligraphy' }
 };
-const yearMediaBase = 'https://raw.githubusercontent.com/yzp525/xiangju-website/master/src/media/years';
+const yearMediaBase = 'https://media.githubusercontent.com/media/yzp525/xiangju-website/master/src/media/years';
 const yearStoryImages = {
   '2023': ['2023-archive-1.jpg', '2023-archive-2.jpg', '2023-archive-3.jpg'],
   '2024': ['2024-archive-1.jpg', '2024-archive-2.jpg', '2024-archive-3.jpg'],
